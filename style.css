@@ -1,0 +1,212 @@
+:root {
+    --primary-color: #ffd700;
+    --secondary-color: #333;
+    --text-color: #fff;
+    --error-color: #ff0000; 
+    --success-color: #2ecc40;
+  }
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    height: 100%;
+    color: var(--text-color);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .hero {
+    background-image: url("./back.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .contact-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal.show {
+    opacity: 1;
+  }
+
+  .modal-content {
+    background-color: var(--secondary-color);
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 50%;
+    max-width: 500px;
+    color: var(--text-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .close:hover {
+    color: var(--primary-color);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+  }
+
+  .input-group {
+    margin-top: 5px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--text-color);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-bottom-color: var(--primary-color);
+  }
+
+  label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
+  input:focus ~ label,
+  input:valid ~ label,
+  textarea:focus ~ label,
+  textarea:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: var(--primary-color);
+  }
+
+  .error {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+    display: none; /* Hide by default, show when there's an error */
+  }
+
+  .submit-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+  }
+
+  .success-message {
+    background-color: var(--success-color);
+    color: var(--text-color);
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+  }
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-5px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(5px);
+    }
+  }
+
+  .shake {
+    animation: shake 0.6s;
+  }
